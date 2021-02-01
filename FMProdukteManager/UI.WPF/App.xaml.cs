@@ -10,6 +10,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using UI.WPF.ViewModels;
 
 namespace UI.WPF
 {
@@ -41,6 +42,7 @@ namespace UI.WPF
         private void OnStartup(object sender, StartupEventArgs e)
         {
             var mainWindow = serviceProvider.GetService<MainWindow>();
+            mainWindow.DataContext = new MainWindowViewModel();
             mainWindow.Show();
         }
 

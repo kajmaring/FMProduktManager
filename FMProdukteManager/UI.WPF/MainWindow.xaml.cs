@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UI.WPF.ViewModels;
 
 namespace UI.WPF
 {
@@ -27,7 +28,7 @@ namespace UI.WPF
             _artikelService = artikelService;
             InitializeComponent();
 
-            getAllTest();
+            DataContext = new MainWindowViewModel();
         }
 
         public async void getAllTest()
