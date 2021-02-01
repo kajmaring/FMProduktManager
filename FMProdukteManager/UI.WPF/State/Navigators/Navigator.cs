@@ -5,11 +5,11 @@ using System.Windows.Input;
 using System.ComponentModel;
 using UI.WPF.ViewModels;
 using UI.WPF.Commands;
-
+using UI.WPF.Models;
 
 namespace UI.WPF.State.Navigators
 {
-    public class Navigator : INavigator, INotifyPropertyChanged
+    public class Navigator : ObservableObject, INavigator
     {
         private BaseViewModel _currentViewModel;
         public BaseViewModel CurrentViewModel
@@ -24,11 +24,5 @@ namespace UI.WPF.State.Navigators
 
         public ICommand UpdateCurrentViewModelCommand => new UpdateCurrentViewModelCommand(this);
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }

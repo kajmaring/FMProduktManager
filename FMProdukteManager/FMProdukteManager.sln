@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI.WPF", "UI.WPF\UI.WPF.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{6DBD6C28-D6AB-48B4-9E92-7BEB7B5CAE3B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedLibraries.DTO", "SharedLibraries.DTO\SharedLibraries.DTO.csproj", "{D2F4DC8B-CDF3-4100-ABB8-60D60D184E31}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{6DBD6C28-D6AB-48B4-9E92-7BEB7B5CAE3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DBD6C28-D6AB-48B4-9E92-7BEB7B5CAE3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DBD6C28-D6AB-48B4-9E92-7BEB7B5CAE3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2F4DC8B-CDF3-4100-ABB8-60D60D184E31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2F4DC8B-CDF3-4100-ABB8-60D60D184E31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2F4DC8B-CDF3-4100-ABB8-60D60D184E31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2F4DC8B-CDF3-4100-ABB8-60D60D184E31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +51,7 @@ Global
 		{9DE3236B-4B03-4E12-9C48-0BBC045BEC3D} = {1EA57D6B-7168-474B-8061-AC6F5104F821}
 		{8DBECF1A-305E-4489-9F3F-8DB7F2B0B05B} = {65E8C534-0AB5-46B3-965D-9C4D1B104240}
 		{6DBD6C28-D6AB-48B4-9E92-7BEB7B5CAE3B} = {43C68329-4553-45FB-9A52-64883CB0768A}
+		{D2F4DC8B-CDF3-4100-ABB8-60D60D184E31} = {9A0DDA7C-09C2-45AB-9504-C96EA9602EF7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ED3538C5-7953-4562-B91F-82DABB0A66DA}

@@ -6,8 +6,9 @@
              xmlns:local="clr-namespace:UI.WPF.Controls"
              xmlns:nav="clr-namespace:UI.WPF.State.Navigators"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="250" Background="{StaticResource BrushDarkGrey}">
-    <Grid>
+             d:Background="{StaticResource BrushDarkGrey}">
+
+    <Grid Width="250" Background="{StaticResource BrushDarkGrey}">
         <Grid.Resources>
             <Style TargetType="{x:Type RadioButton}">
                 <Setter Property="Background" Value="Transparent"/>
@@ -43,7 +44,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Image Source="/Controls/fmlogo_allwhite.png" Margin="20"/>
+        <Image Source="{StaticResource MyLogo}" Margin="20"/>
         <RadioButton Grid.Row="1" IsChecked="true" Command="{Binding UpdateCurrentViewModelCommand}" CommandParameter="{x:Static nav:ViewType.Products}">Produkte</RadioButton>
         <RadioButton Grid.Row="2" Command="{Binding UpdateCurrentViewModelCommand}" CommandParameter="{x:Static nav:ViewType.ProductVariations}">Produktvarianten</RadioButton>
     </Grid>

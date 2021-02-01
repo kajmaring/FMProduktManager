@@ -4,6 +4,17 @@
     xmlns:vm="clr-namespace:UI.WPF.ViewModels"
     xmlns:WPF="clr-namespace:UI.WPF">
 
+    <!--Data Templates-->
+    <DataTemplate DataType="{x:Type vm:ProductsViewModel}">
+        <vw:ProductsView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:ProductVariationsViewModel}">
+        <vw:ProductVariations />
+    </DataTemplate>
+
+    <!--Images-->
+    <BitmapImage x:Key="MyLogo" UriSource="/Images/fmlogo_allwhite.png" />
+
     <!--Colors-->
     <Color x:Key="ColorDarkGrey">#35363b</Color>
     <Color x:Key="ColorMiddleGrey">#565861</Color>
@@ -15,6 +26,14 @@
     <SolidColorBrush x:Key="BrushMiddleGrey" Color="{StaticResource ColorMiddleGrey}"/>
     <SolidColorBrush x:Key="BrushHighLightBlue" Color="{StaticResource ColorHighLightBlue}"/>
     <SolidColorBrush x:Key="BrushVeryLightBlue" Color="{StaticResource ColorVeryLightBlue}"/>
+
+    <!--View Titles-->
+    <Style x:Key="ViewTitle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="{StaticResource BrushDarkGrey}" />
+    </Style>
 
 
     <!--<Style TargetType="ListViewItem">

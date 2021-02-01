@@ -16,9 +16,9 @@ namespace UI.WPF.Views
     /// <summary>
     /// Interaction logic for AddChildProducts.xaml
     /// </summary>
-    public partial class AddChildProducts : UserControl
+    public partial class ProductVariations : UserControl
     {
-        public AddChildProducts()
+        public ProductVariations()
         {
             InitializeComponent();
         }

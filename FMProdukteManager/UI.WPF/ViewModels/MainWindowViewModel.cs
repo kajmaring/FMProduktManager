@@ -8,5 +8,11 @@ namespace UI.WPF.ViewModels
     public class MainWindowViewModel : BaseViewModel
     {
         public INavigator Navigator { get; set; } = new Navigator();
+
+        public MainWindowViewModel()
+        {
+            //Set Startup View:
+            Navigator.UpdateCurrentViewModelCommand.Execute(ViewType.Products);
+        }
     }
 }

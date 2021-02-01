@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Controls\fmlogo_allwhite.png" />
+    <None Remove="Images\fmlogo_allwhite.png" />
+    <None Remove="Images\fmlogo_bw.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,11 +23,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Controls\fmlogo_allwhite.png" />
+    <Resource Include="Images\fmlogo_allwhite.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\fmlogo_bw.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
