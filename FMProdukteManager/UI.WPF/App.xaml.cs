@@ -1,4 +1,5 @@
-﻿using DAL.Models;
+﻿using DAL.DBContext;
+using DAL.Models;
 using DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,7 +31,7 @@ namespace UI.WPF
 
         private void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<EazybusinessContext>(options => options.UseSqlServer(ConfigurationManager.ConnectionStrings["JTLWAWI"].ConnectionString));
+            services.AddDbContext<WaWiContext>(options => options.UseSqlServer(ConfigurationManager.ConnectionStrings["JTLWAWI"].ConnectionString));
 
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<IArtikelRepository, ArtikelRepository>();

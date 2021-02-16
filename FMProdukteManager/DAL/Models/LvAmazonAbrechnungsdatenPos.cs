@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+
+#nullable disable
+
+namespace DAL.Models
+{
+    public partial class LvAmazonAbrechnungsdatenPos
+    {
+        public long KMessageId { get; set; }
+        public int KUser { get; set; }
+        public long SettlementId { get; set; }
+        public string TransactionType { get; set; }
+        public string OrderId { get; set; }
+        public string MerchantOrderId { get; set; }
+        public string AdjustmentId { get; set; }
+        public string ShipmentId { get; set; }
+        public string MarketplaceName { get; set; }
+        public string AmountType { get; set; }
+        public string AmountDescription { get; set; }
+        public decimal Amount { get; set; }
+        public string FulfillmentId { get; set; }
+        public DateTime? PostedDateTime { get; set; }
+        public string OrderItemCode { get; set; }
+        public string MerchantOrderItemId { get; set; }
+        public string Sku { get; set; }
+        public int? QuantityPurchased { get; set; }
+        public string PromotionId { get; set; }
+        public DateTime DErstellt { get; set; }
+    }
+}

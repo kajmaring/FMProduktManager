@@ -4,11 +4,11 @@ using DAL.Models;
 
 namespace DAL.Repositories
 {
-    public interface IArtikelRepository : IRepository<Artikel>
+    public interface IArtikelRepository : IRepository<TArtikel>
     {
-        Task<Artikel> GetArtikelByIdAsync(int id);
-        Task<List<Artikel>> GetAllArtikelAsync();
-        Task<List<Artikel>> GetAllVaterArtikelAsync();
+        Task<TArtikel> GetArtikelByIdAsync(int id);
+        Task<List<TArtikel>> GetAllArtikelAsync();
+        Task<List<TArtikel>> GetAllVaterArtikelAsync();
 
     }
 }

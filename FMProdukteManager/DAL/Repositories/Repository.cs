@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
-using DAL.Models;
+using DAL;
+using DAL.DBContext;
 
 namespace DAL.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, new()
     {
-        protected readonly EazybusinessContext dbContext;
+        protected readonly WaWiContext dbContext;
 
-        public Repository(EazybusinessContext repositoryPatternDemoContext)
+        public Repository(WaWiContext repositoryPatternDemoContext)
         {
             dbContext = repositoryPatternDemoContext;
         }

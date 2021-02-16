@@ -6,8 +6,8 @@ namespace Services
 {
     public interface IArtikelService
     {
-        Task<List<Artikel>> GetAllArtikelAsync();
-        Task<Artikel> GetProductByIdAsync(int id);
-        Task<List<Artikel>> GetAllVaterArtikelAsync();
+        Task<List<TArtikel>> GetAllArtikelAsync();
+        Task<TArtikel> GetProductByIdAsync(int id);
+        Task<List<TArtikel>> GetAllVaterArtikelAsync();
     }
 }
