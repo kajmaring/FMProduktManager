@@ -2,6 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using DAL.Models;
 
+// Scaffold Command for Context and Model Creation:
+// Scaffold-DbContext "Server=DESKTOP-L3OQ8K1\JTLWAWI;Database=eazybusiness;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -ContextNamespace DAL.DBContext -Context WaWiContext -OutputDir Models -NoPluralize
+
 #nullable disable
 
 namespace DAL.DBContext

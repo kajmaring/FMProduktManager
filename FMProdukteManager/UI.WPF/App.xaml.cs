@@ -11,6 +11,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using UI.WPF.State.Navigators;
 using UI.WPF.ViewModels;
 
 namespace UI.WPF
@@ -20,31 +21,32 @@ namespace UI.WPF
     /// </summary>
     public partial class App : Application
     {
-        private ServiceProvider serviceProvider;
-
-        public App()
+        protected override void OnStartup(StartupEventArgs e)
         {
-            var services = new ServiceCollection();
-            ConfigureServices(services);
-            serviceProvider = services.BuildServiceProvider();
+            IServiceProvider serviceProvider = CreateServiceProvider();
+
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.DataContext = serviceProvider.GetRequiredService<MainWindowViewModel>();
+            mainWindow.Show();
+
+            base.OnStartup(e);
         }
 
-        private void ConfigureServices(IServiceCollection services)
+        private IServiceProvider CreateServiceProvider()
         {
+            IServiceCollection services = new ServiceCollection();
+
             services.AddDbContext<WaWiContext>(options => options.UseSqlServer(ConfigurationManager.ConnectionStrings["JTLWAWI"].ConnectionString));
 
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<IArtikelRepository, ArtikelRepository>();
 
             services.AddTransient<IArtikelService, ArtikelService>();
-            services.AddSingleton<MainWindow>();
-        }
 
-        private void OnStartup(object sender, StartupEventArgs e)
-        {
-            var mainWindow = serviceProvider.GetService<MainWindow>();
-            mainWindow.DataContext = new MainWindowViewModel();
-            mainWindow.Show();
+            services.AddScoped<MainWindowViewModel>();
+            services.AddScoped<INavigator, Navigator>();
+
+            return services.BuildServiceProvider();
         }
 
     }

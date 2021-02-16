@@ -22,20 +22,9 @@ namespace UI.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        IArtikelService _artikelService;
-        public MainWindow(IArtikelService artikelService)
+        public MainWindow()
         {
-            _artikelService = artikelService;
             InitializeComponent();
-
-            DataContext = new MainWindowViewModel();
-        }
-
-        public async void getAllTest()
-        {
-            var alle = await _artikelService.GetAllArtikelAsync();
-
-            var vater = await _artikelService.GetAllVaterArtikelAsync();
         }
     }
 }
