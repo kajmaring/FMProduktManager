@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using DAL.Models;
 using System.Linq;
-using DAL.DBContext;
 
 namespace DAL.Repositories
 {

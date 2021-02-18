@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLayer", "BusinessLayer", "{9B91F7CE-64C8-40AD-B756-DBA07B5543D6}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PresentationLayer", "PresentationLayer", "{65E8C534-0AB5-46B3-965D-9C4D1B104240}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccessLayer", "DataAccessLayer", "{1EA57D6B-7168-474B-8061-AC6F5104F821}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceLayer", "ServiceLayer", "{43C68329-4553-45FB-9A52-64883CB0768A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DomainLayer", "DomainLayer", "{43C68329-4553-45FB-9A52-64883CB0768A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedLibraries", "SharedLibraries", "{9A0DDA7C-09C2-45AB-9504-C96EA9602EF7}"
 EndProject
@@ -17,9 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{9
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI.WPF", "UI.WPF\UI.WPF.csproj", "{8DBECF1A-305E-4489-9F3F-8DB7F2B0B05B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{6DBD6C28-D6AB-48B4-9E92-7BEB7B5CAE3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Services\Domain.csproj", "{6DBD6C28-D6AB-48B4-9E92-7BEB7B5CAE3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedLibraries.DTO", "SharedLibraries.DTO\SharedLibraries.DTO.csproj", "{D2F4DC8B-CDF3-4100-ABB8-60D60D184E31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedLibraries.DTO", "SharedLibraries.DTO\SharedLibraries.DTO.csproj", "{D2F4DC8B-CDF3-4100-ABB8-60D60D184E31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

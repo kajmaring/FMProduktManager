@@ -17,11 +17,11 @@ namespace DAL.Repositories
             dbContext = repositoryPatternDemoContext;
         }
 
-        public IQueryable<TEntity> GetAll()
+        public async IQueryable<TEntity> GetAll()
         {
             try
             {
-                return dbContext.Set<TEntity>();
+                return await dbContext.Set<TEntity>();
             }
             catch (Exception ex)
             {

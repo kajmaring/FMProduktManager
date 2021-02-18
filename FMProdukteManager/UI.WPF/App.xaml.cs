@@ -1,9 +1,8 @@
 ﻿using DAL.DBContext;
-using DAL.Models;
-using DAL.Repositories;
+using Domain.Models;
+using Domain.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Services;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -13,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using UI.WPF.State.Navigators;
 using UI.WPF.ViewModels;
+using UI.WPF.ViewModels.Factories;
 
 namespace UI.WPF
 {
@@ -38,10 +38,11 @@ namespace UI.WPF
 
             services.AddDbContext<WaWiContext>(options => options.UseSqlServer(ConfigurationManager.ConnectionStrings["JTLWAWI"].ConnectionString));
 
-            services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
-            services.AddTransient<IArtikelRepository, ArtikelRepository>();
+            services.AddTransient<IProductService, ProductService>();
 
-            services.AddTransient<IArtikelService, ArtikelService>();
+            services.AddSingleton<IViewModelAbstractFactory, ViewModelAbstractFactory>();
+            services.AddSingleton<IViewModelFactory<ProductsViewModel>, ProductsViewModelFactory>();
+            services.AddSingleton<IViewModelFactory<ProductVariationsViewModel>, ProductVariationsViewModelFactory>();
 
             services.AddScoped<MainWindowViewModel>();
             services.AddScoped<INavigator, Navigator>();

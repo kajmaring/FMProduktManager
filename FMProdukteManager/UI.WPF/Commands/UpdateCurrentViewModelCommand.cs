@@ -1,20 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 using UI.WPF.State.Navigators;
-using UI.WPF.ViewModels;
+using UI.WPF.ViewModels.Factories;
 
 namespace UI.WPF.Commands
 {
     public class UpdateCurrentViewModelCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
-        private INavigator _navigator;
 
-        public UpdateCurrentViewModelCommand(INavigator navigator)
+        private INavigator _navigator;
+        private readonly IViewModelAbstractFactory _viewModelFactory;
+
+        public UpdateCurrentViewModelCommand(INavigator navigator, IViewModelAbstractFactory viewModelFactory)
         {
-            _navigator = navigator;
+            this._navigator = navigator;
+            this._viewModelFactory = viewModelFactory;
         }
 
         public bool CanExecute(object parameter)
@@ -28,17 +29,7 @@ namespace UI.WPF.Commands
             {
                 ViewType viewType = (ViewType)parameter;
 
-                switch (viewType)
-                {
-                    case ViewType.Products:
-                        _navigator.CurrentViewModel = new ProductsViewModel();
-                        break;
-                    case ViewType.ProductVariations:
-                        _navigator.CurrentViewModel = new ProductVariationsViewModel();
-                        break;
-                    default:
-                        break;
-                }
+                _navigator.CurrentViewModel = _viewModelFactory.CreateViewModel(viewType);
             }
         }
     }

@@ -6,6 +6,7 @@ using System.ComponentModel;
 using UI.WPF.ViewModels;
 using UI.WPF.Commands;
 using UI.WPF.Models;
+using UI.WPF.ViewModels.Factories;
 
 namespace UI.WPF.State.Navigators
 {
@@ -22,7 +23,11 @@ namespace UI.WPF.State.Navigators
             }
         }
 
-        public ICommand UpdateCurrentViewModelCommand => new UpdateCurrentViewModelCommand(this);
+        public ICommand UpdateCurrentViewModelCommand { get; set; }
 
+        public Navigator(IViewModelAbstractFactory viewModelFactory)
+        {
+            UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(this, viewModelFactory);
+        }
     }
 }
