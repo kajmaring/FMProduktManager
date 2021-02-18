@@ -16,7 +16,7 @@ namespace UI.WPF.ViewModels.Factories
 
         public ProductsViewModel CreateViewModel()
         {
-            return ProductsViewModel.LoadProductsViewModel(_productService);
+            return new ProductsViewModel(_productService);
         }
     }
 }

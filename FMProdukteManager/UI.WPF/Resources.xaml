@@ -19,7 +19,7 @@
     <Color x:Key="ColorDarkGrey">#35363b</Color>
     <Color x:Key="ColorMiddleGrey">#565861</Color>
     <Color x:Key="ColorHighLightBlue">#22b2ea</Color>
-    <Color x:Key="ColorVeryLightBlue">#e3e7fa</Color>
+    <Color x:Key="ColorVeryLightBlue">#dfe9f1</Color>
     
     <!--Brushes-->
     <SolidColorBrush x:Key="BrushDarkGrey" Color="{StaticResource ColorDarkGrey}"/>
@@ -34,6 +34,11 @@
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Foreground" Value="{StaticResource BrushDarkGrey}" />
         <Setter Property="Padding" Value="0, 0, 0, 20" />
+    </Style>
+
+    <!--View ListBoxes-->
+    <Style TargetType="ListView">
+
     </Style>
 
     <!--<Style TargetType="ListViewItem">

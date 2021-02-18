@@ -31,10 +31,10 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Content="Suche" VerticalAlignment="Center" FontSize="18" />
+            <Label Grid.Row="0" Content="Produktsuche" VerticalAlignment="Center" FontSize="18" />
             <TextBox Grid.Row="1" HorizontalAlignment="Stretch" Height="25" FontSize="14" VerticalAlignment="Center" Padding="2" Text="{Binding Path=ProductsFilter, UpdateSourceTrigger=PropertyChanged}" />
 
-            <ListView Grid.Row="3" Height="200" HorizontalAlignment="Stretch" Name="listViewProducts" VerticalAlignment="Top" Width="auto" FontSize="14" ItemsSource="{Binding ProductsView}">
+            <ListView Grid.Row="3" Height="200" HorizontalAlignment="Stretch" Name="listViewProducts" VerticalAlignment="Top" Width="auto" FontSize="14" ItemsSource="{Binding ProductsView}" SelectedItem="{Binding SelectedProduct}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="100" Header="Artikelnummer" DisplayMemberBinding="{Binding ArtNumber}"/>
@@ -42,6 +42,8 @@
                     </GridView>
                 </ListView.View>
             </ListView>
+
+            <Label Grid.Row="5" Content="{Binding SelectedProduct.Name}" />
 
         </Grid>
         

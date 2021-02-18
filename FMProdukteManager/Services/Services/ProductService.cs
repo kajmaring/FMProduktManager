@@ -27,6 +27,7 @@ namespace Domain.Services
                                       orderby beschreibung.CName
                                       select new Domain.Models.ProductDTO()
                                       {
+                                          Id = artikel.KArtikel,
                                           ArtNumber = artikel.CArtNr,
                                           Name = beschreibung.CName
                                       }).ToListAsync();

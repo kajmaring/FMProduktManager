@@ -13,38 +13,35 @@ namespace UI.WPF.ViewModels
     public class ProductsViewModel : BaseViewModel
     {
         private readonly IProductService _productService;
+        
         private string _productsFilter;
         private ObservableCollection<ProductDTO> _products;
+        private ProductDTO _selectedProduct;
         internal CollectionViewSource ProductsViewSource { get; set; } = new CollectionViewSource();
 
         public ProductsViewModel(IProductService productService)
         {
             _productService = productService;
-
             ProductsViewSource.Filter += ProductsViewSource_Filter;
 
+            LoadProducts();
         }
+
+        private async void LoadProducts()
+        {
+            var products = await _productService.GetAllProductsAsync();
+
+            if (products != null)
+            {
+                _products = new ObservableCollection<ProductDTO>(products);
+                ProductsViewSource.Source = _products;
+                OnPropertyChanged(nameof(ProductsView));
+            }
+        }
+
         public ICollectionView ProductsView
         {
             get { return ProductsViewSource.View; }
-        }
-
-        public static ProductsViewModel LoadProductsViewModel(IProductService productService)
-        {
-            ProductsViewModel productsViewModel = new ProductsViewModel(productService);
-            productsViewModel.LoadProducts();
-            return productsViewModel;
-        }
-
-        private void LoadProducts()
-        {
-            var products = _productService.GetAllProductsAsync().ContinueWith(task =>
-            {
-                if(task.Exception == null)
-                {
-                    _products = new ObservableCollection<ProductDTO>(task.Result); 
-                }
-            });
         }
 
         private void ProductsViewSource_Filter(object sender, FilterEventArgs e)
@@ -57,7 +54,7 @@ namespace UI.WPF.ViewModels
             else
             {
                 ProductDTO p = (ProductDTO)e.Item;
-                if (p.Name.StartsWith(_productsFilter) || p.ArtNumber.StartsWith(_productsFilter))
+                if (p.Name.ToLower().Contains(_productsFilter.ToLower()) || p.ArtNumber.ToLower().Contains(_productsFilter.ToLower()))
                 {
                     e.Accepted = true;
                 }
@@ -67,6 +64,7 @@ namespace UI.WPF.ViewModels
                 }
             }
         }
+
         public string ProductsFilter
         {
             get
@@ -83,6 +81,17 @@ namespace UI.WPF.ViewModels
                 }
             }
         }
+
+        public ProductDTO SelectedProduct
+        {
+            get { return _selectedProduct; }
+            set
+            {
+                _selectedProduct = value;
+                OnPropertyChanged(nameof(SelectedProduct));
+            }
+        }
+
 
     }
 }
