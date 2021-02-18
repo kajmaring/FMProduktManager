@@ -40,6 +40,25 @@ namespace Domain.Services
             }
         }
 
+        public async Task<byte[]> getProductPicture(ProductDTO product)
+        {
+            try
+            {
+                var picture = await (from artikel in _dbContext.TArtikel
+                                       where artikel.KArtikel == product.Id
+                                       join artikelBild in _dbContext.TArtikelbildPlattform on artikel.KArtikel equals artikelBild.KArtikel
+                                       join bild in _dbContext.TBild on artikelBild.KBild equals bild.KBild
+                                       select bild.BBild).FirstOrDefaultAsync();
+                                     
+
+                return picture;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Couldn't retrieve entities: {ex.Message}");
+            }
+        }
+
         //public async Task<List<Product>> GetAllProductFathers()
         //{
         //    throw new System.NotImplementedException();

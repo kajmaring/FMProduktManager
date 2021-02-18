@@ -17,6 +17,7 @@ namespace UI.WPF.ViewModels
         private string _productsFilter;
         private ObservableCollection<ProductDTO> _products;
         private ProductDTO _selectedProduct;
+        private byte[] _productImage;
         internal CollectionViewSource ProductsViewSource { get; set; } = new CollectionViewSource();
 
         public ProductsViewModel(IProductService productService)
@@ -89,6 +90,16 @@ namespace UI.WPF.ViewModels
             {
                 _selectedProduct = value;
                 OnPropertyChanged(nameof(SelectedProduct));
+            }
+        }
+
+        public byte[] ProductImage
+        {
+            get { return _productImage; }
+            set
+            {
+                _productImage = value;
+                OnPropertyChanged(nameof(ProductImage));
             }
         }
 
